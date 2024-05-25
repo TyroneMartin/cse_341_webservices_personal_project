@@ -1,0 +1,141 @@
+// LOCALHOST
+
+# Swagger API UI
+GET http://localhost:8080/api-docs
+###
+
+#Get all contacts
+GET http://localhost:8080/contacts
+### 
+
+# Get contact by ID
+GET http://localhost:8080/contacts/663249cb8ea92ee60e761f0b HTTP/1.1
+### 
+
+# Create contact POST 
+POST http://localhost:8080/contacts HTTP/1.1
+Content-Type: application/json
+ 
+{
+  "first_name": "string",
+  "last_name": "string",
+  "date_of_birth": "string",
+  "password": "string",
+  "nationality": "string",
+  "semester": "string",
+}
+
+### PUT contact 
+PUT http://localhost:8080/contacts/663249cb8ea92ee60e761f0b HTTP/1.1 
+content-type: application/json
+
+{
+  "first_name": "string",
+  "last_name": "string",
+  "date_of_birth": "string",
+  "password": "string",
+  "nationality": "string",
+  "semester": "string",
+  "parents": {
+    "mother": "string",
+    "father": "string"
+  },
+  "contact_numbers": {
+    "phone_num": "string",
+    "parents": {
+      "mother": "string",
+      "father": "string"
+    }
+  },
+  "public_profile": {
+    "hobbies": "string",
+    "plans_after_graduation": "string",
+    "major": "string",
+    "years_to_graduate": "string"
+  }
+}
+
+### DELETE contact 
+DELETE http://localhost:8080/contacts/663852449fdb8f8e7896de4a HTTP/1.1
+
+
+// PRODUCTION Deploy 
+
+### Get all contacts 
+GET https://cse-341-webservices-personal-project.onrender.com/contacts  HTTP/1.1
+
+### Get contact by id 
+GET https://cse-341-webservices-personal-project.onrender.com/contacts/663249cb8ea92ee60e761f0b  HTTP/1.1
+
+### Create contact 
+POST https://cse-341-webservices-personal-project.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+  "first_name": "string",
+  "last_name": "string",
+  "date_of_birth": "string",
+  "password": "string",
+  "nationality": "string",
+  "semester": "string",
+}
+
+
+### PUT contact 
+PUT https://cse-341-webservices-personal-project.onrender.com/contacts/663852449fdb8f8e7896de4a HTTP/1.1
+content-type: application/json
+
+{
+  "first_name": "string",
+  "last_name": "string",
+  "date_of_birth": "string",
+  "password": "string",
+  "nationality": "string",
+  "semester": "string",
+  "parents": {
+    "mother": "string",
+    "father": "string"
+  },
+  "contact_numbers": {
+    "phone_num": "string",
+    "parents": {
+      "mother": "string",
+      "father": "string"
+    }
+  },
+  "public_profile": {
+    "hobbies": "string",
+    "plans_after_graduation": "string",
+    "major": "string",
+    "years_to_graduate": "string"
+  }
+}
+### DELETE contact
+DELETE https://cse-341-webservices-personal-project.onrender.com/contacts/663872ab5014f8846ea19ae7 HTTP/1.1
+
+### PATCH
+
+PATCH  https://cse-341-webservices-personal-project.onrender.com/contacts/admin/663852449fdb8f8e7896de4a HTTP/1.1
+content-type: application/json
+
+{
+  "parents": {
+    "mother": "string",
+    "father": "string"
+  },
+  "contact_numbers": {
+    "phone_num": "string",
+    "parents": {
+      "mother": "string",
+      "father": "string"
+    }
+  },
+  "public_profile": {
+    "hobbies": "string",
+    "years_of_service": 0,
+    "department": "Administration",
+    "years_to_graduate": "string",
+    "role": "string"
+  }
+}
+

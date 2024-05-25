@@ -1,0 +1,290 @@
+ [
+    {
+      "id": 1332425,
+      "first_name": "John",
+      "last_name": "Petterson",
+      "date_of_birth": "1998-05-21",
+      "password": "johnpassword123",
+      "nationality": "American",
+      "account_type": "student",
+      "semester": "Junior",
+      "parents": {
+        "mother": "Mary Doe",
+        "father": "Robert Doe"
+      },
+      "contact_numbers": {
+        "phone_num": "123-456-7890",
+        "parents": {
+          "mother": "987-654-3210",
+          "father": "567-890-1234"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Basketball", "Reading"],
+        "plans_after_graduation": "Pursue a Master's degree",
+        "major": "Computer Science",
+        "years_to_graduate": 1
+      }
+    },
+    {
+      "id": 1332426,
+      "first_name": "Janie",
+      "last_name": "Smith",
+      "date_of_birth": "1999-10-15",
+      "password": "janiepassword123",
+      "nationality": "Canadian",
+      "account_type": "student",
+      "semester": "Senior",
+      "parents": {
+        "mother": "Emily Smith",
+        "father": "Michael Smith"
+      },
+      "contact_numbers": {
+        "phone_num": "321-654-9870",
+        "parents": {
+          "mother": "789-012-3456",
+          "father": "234-567-8901"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Swimming", "Painting"],
+        "plans_after_graduation": "Work in a tech company",
+        "major": "Electrical Engineering",
+        "years_to_graduate": 0
+      }
+    },
+    {
+      "id": 1332427,
+      "first_name": "David",
+      "last_name": "Brown",
+      "date_of_birth": "2000-02-28",
+      "password": "davidpassword123",
+      "nationality": "British",
+      "account_type": "student",
+      "semester": "Sophomore",
+      "parents": {
+        "mother": "Sarah Brown",
+        "father": "James Brown"
+      },
+      "contact_numbers": {
+        "phone_num": "678-987-7657",
+        "parents": {
+          "mother": "678-987-7655",
+          "father": "678-987-7656"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Gaming", "Traveling"],
+        "plans_after_graduation": "Start a tech startup",
+        "major": "Information Technology",
+        "years_to_graduate": 2
+      }
+    },
+    {
+      "id": 1332428,
+      "first_name": "Emma",
+      "last_name": "Johnson",
+      "date_of_birth": "1999-08-10",
+      "password": "emmapassword123",
+      "nationality": "Australian",
+      "account_type": "student",
+      "semester": "Junior",
+      "parents": {
+        "mother": "Jennifer Johnson",
+        "father": "David Johnson"
+      },
+      "contact_numbers": {
+        "phone_num": "676-676-8088",
+        "parents": {
+          "mother": "465-899-5646",
+          "father": "465-878-7644"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Dancing", "Writing"],
+        "plans_after_graduation": "Travel around the world",
+        "major": "English Literature",
+        "years_to_graduate": 1
+      }
+    },
+    {
+      "id": 1332429,
+      "first_name": "Michael",
+      "last_name": "Garcia",
+      "date_of_birth": "1997-11-03",
+      "password": "michaelpassword123",
+      "nationality": "Spanish",
+      "account_type": "student",
+      "semester": "Senior",
+      "parents": {
+        "mother": "Maria Garcia",
+        "father": "Antonio Garcia"
+      },
+      "contact_numbers": {
+        "phone_num": "656-222-3333",
+        "parents": {
+          "mother": "675-656-9867",
+          "father": "463-535-4534"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Soccer", "Photography"],
+        "plans_after_graduation": "Work in international business",
+        "major": "Business Administration",
+        "years_to_graduate": 0
+      }
+    },
+    {
+      "id": 1332430,
+      "first_name": "Sophia",
+      "last_name": "Martinez",
+      "date_of_birth": "1998-12-20",
+      "password": "sophiapassword123",
+      "nationality": "Mexican",
+      "account_type": "student",
+      "semester": "Junior",
+      "parents": {
+        "mother": "Isabella Martinez",
+        "father": "Juan Martinez"
+      },
+      "contact_numbers": {
+        "phone_num": "765-888-9886",
+        "parents": {
+          "mother": "545-555-7545",
+          "father": "333-222-5463"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Cooking", "Hiking"],
+        "plans_after_graduation": "Pursue a career in culinary arts",
+        "major": "Culinary Arts",
+        "years_to_graduate": 1
+      }
+    },
+    {
+      "id": 1332431,
+      "first_name": "Ethan",
+      "last_name": "Hernandez",
+      "date_of_birth": "1999-04-17",
+      "password": "ethanpassword123",
+      "nationality": "American",
+      "account_type": "student",
+      "semester": "Sophomore",
+      "parents": {
+        "mother": "Samantha Hernandez",
+        "father": "Daniel Hernandez"
+      },
+      "contact_numbers": {
+        "phone_num": "543-888-5555",
+        "parents": {
+          "mother": "484-333-9995",
+          "father": "545-646-7764"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Basketball", "Reading"],
+        "plans_after_graduation": "Pursue a Master's degree",
+        "major": "Computer Science",
+        "years_to_graduate": 2
+      }
+    },
+    {
+      "id": 1332432,
+      "first_name": "Olivia",
+      "last_name": "Lopez",
+      "date_of_birth": "2000-01-25",
+      "password": "oliviapassword123",
+      "nationality": "American",
+      "account_type": "student",
+      "semester": "Junior",
+      "parents": {
+        "mother": "Sophia Lopez",
+        "father": "Luis Lopez"
+      },
+      "contact_numbers": {
+        "phone_num": "222-333-4744",
+        "parents": {
+          "mother": "747-465-7877",
+          "father": "745-654-7545"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Swimming", "Painting"],
+        "plans_after_graduation": "Work in a tech company",
+        "major": "Electrical Engineering",
+        "years_to_graduate": 1
+      }
+    },
+    {
+      "id": 1332433,
+      "first_name": "Aiden",
+      "last_name": "Gonzalez",
+      "date_of_birth": "1998-06-14",
+      "password": "aidenpassword123",
+      "nationality": "American",
+      "account_type": "student",
+      "semester": "Senior",
+      "parents": {
+        "mother": "Mia Gonzalez",
+        "father": "Carlos Gonzalez"
+      },
+      "contact_numbers": {
+        "phone_num": "333-444-5555",
+        "parents": {
+          "mother": "666-777-8888",
+          "father": "999-000-1111"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Gaming", "Traveling"],
+        "plans_after_graduation": "Start a tech startup",
+        "major": "Information Technology",
+        "years_to_graduate": 0
+      }
+    },
+    {
+      "id": 1332434,
+      "first_name": "Mia",
+      "last_name": "Perez",
+      "date_of_birth": "1999-09-29",
+      "password": "miapassword123",
+      "nationality": "Spanish",
+      "account_type": "student",
+      "semester": "Sophomore",
+      "parents": {
+        "mother": "Emma Perez",
+        "father": "Jose Perez"
+      },
+      "contact_numbers": {
+        "phone_num": "444-555-6666",
+        "parents": {
+          "mother": "777-888-9999",
+          "father": "000-111-2222"
+        }
+      },
+      "public_profile": {
+        "hobbies": ["Soccer", "Photography"],
+        "plans_after_graduation": "Pursue a career in sports management",
+        "major": "Sports Management",
+        "years_to_graduate": 2
+      }
+    },
+    {
+      "id": 1332435,
+      "first_name": "Samuel",
+      "last_name": "Henderson",
+      "date_of_birth": "1975-05-15",
+      "password": "adminpassword123",
+      "nationality": "American",
+      "account_type": "admin",
+      "contact_numbers": {
+        "phone_num": "343-233-6345"
+      },
+      "public_profile": {
+        "hobbies": ["Reading", "Gardening"],
+        "years_of_service": 10,
+        "department": "Administration",
+        "role": "School Administrator"
+      }
+    }
+  ]
