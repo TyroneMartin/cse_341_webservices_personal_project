@@ -5,7 +5,9 @@
     "description": "Is a RESTful API for my contacts created as part of my class assignment for CSE 341.",
     "version": "1.0.0"
   },
-  "host": "cse-341-webservices-personal-project.onrender.com",
+  "host": [
+    "cse-341-webservices-personal-project.onrender.com"
+  ],
   "basePath": "/",
   "schemes": [
     "https"
@@ -20,65 +22,20 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
-        "description": "Create a new contact",
+        "description": "Create a new student contact",
         "parameters": [
           {
-            "name": "first_name",
+            "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
-              "type": "string",
-              "example": "John"
-            }
-          },
-          {
-            "name": "last_name",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "example": "Doe"
-            }
-          },
-          {
-            "name": "date_of_birth",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "date",
-              "example": "2000-01-01"
-            }
-          },
-          {
-            "name": "password",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "password",
-              "example": "securepassword123"
-            }
-          },
-          {
-            "name": "nationality",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "semester",
-            "in": "body",
-            "required": false,
-            "schema": {
-              "type": "string",
-              "format": "freshman, sophomore, junior, senior"
+              "$ref": "#/definitions/Contact"
             }
           }
         ],
@@ -112,6 +69,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -127,77 +87,8 @@
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "first_name": {
-                  "type": "string"
-                },
-                "last_name": {
-                  "type": "string"
-                },
-                "date_of_birth": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "nationality": {
-                  "type": "string"
-                },
-                "semester": {
-                  "type": "string"
-                },
-                "parents": {
-                  "type": "object",
-                  "properties": {
-                    "mother": {
-                      "type": "string"
-                    },
-                    "father": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "contact_numbers": {
-                  "type": "object",
-                  "properties": {
-                    "phone_num": {
-                      "type": "string"
-                    },
-                    "parents": {
-                      "type": "object",
-                      "properties": {
-                        "mother": {
-                          "type": "string"
-                        },
-                        "father": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "public_profile": {
-                  "type": "object",
-                  "properties": {
-                    "hobbies": {
-                      "type": "string"
-                    },
-                    "plans_after_graduation": {
-                      "type": "string"
-                    },
-                    "major": {
-                      "type": "string"
-                    },
-                    "years_to_graduate": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "required": ["first_name", "last_name", "date_of_birth", "password", "nationality", "semester"]
+              "$ref": "#/definitions/Contact"
             }
           }
         ],
@@ -211,7 +102,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete a contact by ID",
         "parameters": [
           {
             "name": "id",
@@ -228,9 +119,11 @@
             "description": "Internal Server Error"
           }
         }
-      },
+      }
+    },
+    "/contacts/admin/{id}": {
       "patch": {
-        "description": "Partially update a contact by ID",
+        "description": "Partially update a contact by ID for admin",
         "parameters": [
           {
             "name": "id",
@@ -241,80 +134,8 @@
           {
             "name": "body",
             "in": "body",
-            "required": true,
             "schema": {
-              "type": "object",
-              "properties": {
-                "first_name": {
-                  "type": "string"
-                },
-                "last_name": {
-                  "type": "string"
-                },
-                "date_of_birth": {
-                  "type": "string"
-                },
-                "password": {
-                  "type": "string"
-                },
-                "nationality": {
-                  "type": "string"
-                },
-                "semester": {
-                  "type": "string"
-                },
-                "parents": {
-                  "type": "object",
-                  "properties": {
-                    "mother": {
-                      "type": "string"
-                    },
-                    "father": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "contact_numbers": {
-                  "type": "object",
-                  "properties": {
-                    "phone_num": {
-                      "type": "string"
-                    },
-                    "parents": {
-                      "type": "object",
-                      "properties": {
-                        "mother": {
-                          "type": "string"
-                        },
-                        "father": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "public_profile": {
-                  "type": "object",
-                  "properties": {
-                    "hobbies": {
-                      "type": "string"
-                    },
-                    "years_of_service": {
-                      "type": "number"
-                    },
-                    "department": {
-                      "type": "string",
-                      "enum": ["Administration"]
-                    },
-                    "years_to_graduate": {
-                      "type": "string"
-                    },
-                    "role": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/AdminContact"
             }
           }
         ],
@@ -327,6 +148,147 @@
           }
         }
       }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "format": "date"
+        },
+        "password": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "semester": {
+          "type": "integer"
+        },
+        "parents": {
+          "type": "object",
+          "properties": {
+            "mother": {
+              "type": "string"
+            },
+            "father": {
+              "type": "string"
+            }
+          }
+        },
+        "contact_numbers": {
+          "type": "object",
+          "properties": {
+            "phone_num": {
+              "type": "string"
+            },
+            "parents": {
+              "type": "object",
+              "properties": {
+                "mother": {
+                  "type": "string"
+                },
+                "father": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "public_profile": {
+          "type": "object",
+          "properties": {
+            "hobbies": {
+              "type": "string"
+            },
+            "plans_after_graduation": {
+              "type": "string"
+            },
+            "major": {
+              "type": "string"
+            },
+            "years_to_graduate": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "password"
+      ]
+    },
+    "AdminContact": {
+      "type": "object",
+      "properties": {
+        "first_name": {
+          "type": "string"
+        },
+        "last_name": {
+          "type": "string"
+        },
+        "date_of_birth": {
+          "type": "string",
+          "format": "date"
+        },
+        "password": {
+          "type": "string"
+        },
+        "nationality": {
+          "type": "string"
+        },
+        "account_type": {
+          "type": "string",
+          "enum": [
+            "admin"
+          ]
+        },
+        "contact_numbers": {
+          "type": "object",
+          "properties": {
+            "phone_num": {
+              "type": "string"
+            }
+          }
+        },
+        "public_profile": {
+          "type": "object",
+          "properties": {
+            "hobbies": {
+              "type": "string"
+            },
+            "years_of_service": {
+              "type": "integer"
+            },
+            "department": {
+              "type": "string",
+              "enum": [
+                "Administration"
+              ]
+            },
+            "role": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "first_name",
+        "last_name",
+        "date_of_birth",
+        "password",
+        "account_type"
+      ]
     }
   }
 }
