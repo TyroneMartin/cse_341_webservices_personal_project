@@ -40,25 +40,25 @@ const createContact = async (req, res) => {
       last_name: req.body.last_name,
       date_of_birth: req.body.date_of_birth,
       password: req.body.password,
-      nationality: req.body.nationality,
+      nationality: req.body.nationality || '',
       account_type: 'student',
-      semester: req.body.semester,
+      semester: req.body.semester || '',
       parents: {
-        mother: req.body.parents?.mother,
-        father: req.body.parents?.father
+        mother: req.body.parents?.mother || '',
+        father: req.body.parents?.father || ''
       },
       contact_numbers: {
-        phone_num: req.body.contact_numbers?.phone_num,
+        phone_num: req.body.contact_numbers?.phone_num || '',
         parents: {
-          mother: req.body.contact_numbers?.parents?.mother,
-          father: req.body.contact_numbers?.parents?.father
+          mother: req.body.contact_numbers?.parents?.mother || '',
+          father: req.body.contact_numbers?.parents?.father || ''
         }
       },
       public_profile: {
-        hobbies: req.body.public_profile?.hobbies,
-        plans_after_graduation: req.body.public_profile?.plans_after_graduation,
-        major: req.body.public_profile?.major,
-        years_to_graduate: req.body.public_profile?.years_to_graduate
+        hobbies: req.body.public_profile?.hobbies || [],
+        plans_after_graduation: req.body.public_profile?.plans_after_graduation || '',
+        major: req.body.public_profile?.major || '',
+        years_to_graduate: req.body.public_profile?.years_to_graduate || 0
       }
     };
 
