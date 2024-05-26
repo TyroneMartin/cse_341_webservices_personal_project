@@ -35,17 +35,11 @@ const getSingle = async (req, res, next) => {
 
 const createContact = async (req, res) => {
   try {
-    // Validate required fields
-    const { first_name, last_name, date_of_birth, password } = req.body;
-    if (!first_name || !last_name || !date_of_birth || !password) {
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-
     const contact = {
-      first_name,
-      last_name,
-      date_of_birth,
-      password,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      date_of_birth: req.body.date_of_birth,
+      password: req.body.password,
       nationality: req.body.nationality || '',
       account_type: 'student',
       semester: req.body.semester || '',
@@ -67,6 +61,53 @@ const createContact = async (req, res) => {
         years_to_graduate: req.body.public_profile?.years_to_graduate || 0
       }
     };
+
+    const response = await mongodb
+      .getDb()
+      .db()
+      .collection('school-bd')
+      .insertOne(contact);
+
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const updateContact = async (req, res) => {
+  try {
+    const userId = new ObjectId(req.params.id);
+    const contact = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      date_of_birth: req.body.date_of_birth,
+      password: req.body.password,
+      nationality: req.body.nationality,
+      account_type: 'student',
+      semester: req.body.semester,
+      parents: {
+        mother: req.body.parents?.mother,
+        father: req.body.parents?.father
+      },
+      contact_numbers: {
+        phone_num: req.body.contact_numbers?.phone_num,
+        parents: {
+          mother: req.body.contact_numbers?.parents?.mother,
+          father: req.body.contact_numbers?.parents?.father
+        }
+      },
+      public_profile: {
+        hobbies: req.body.public_profile?.hobbies,
+        plans_after_graduation: req.body.public_profile?.plans_after_graduation,
+        major: req.body.public_profile?.major,
+        years_to_graduate: req.body.public_profile?.years_to_graduate
+      }
+    };
+
     const response = await mongodb
       .getDb()
       .db()
@@ -91,7 +132,17 @@ const adminUpdateContact = async (req, res) => {
       last_name: req.body.last_name,
       date_of_birth: req.body.date_of_birth,
       password: req.body.password,
+      nationality: req.body.nationality,
       account_type: req.body.account_type || 'admin',
+      contact_numbers: {
+        phone_num: req.body.contact_numbers?.phone_num
+      },
+      public_profile: {
+        hobbies: req.body.public_profile?.hobbies,
+        years_of_service: req.body.public_profile?.years_of_service,
+        department: req.body.public_profile?.department,
+        role: req.body.public_profile?.role
+      }
     };
 
     const response = await mongodb
