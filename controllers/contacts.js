@@ -1,5 +1,7 @@
 const mongodb = require('../db/connect');
 const { ObjectId } = require('mongodb');
+const passwordUtil = require('../util/passwordComplexityCheck');
+
 
 const getAllContacts = async (req, res, next) => {
   try {
@@ -33,8 +35,16 @@ const getSingle = async (req, res, next) => {
   }
 };
 
+
 const createContact = async (req, res) => {
   try {
+    const password = req.body.password;
+    const passwordCheck = passwordUtil.passwordPass(password);
+    if (passwordCheck.error) {
+      res.status(400).send({ message: passwordCheck.error });
+      return;
+    }
+
     const contact = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -69,7 +79,7 @@ const createContact = async (req, res) => {
       .insertOne(contact);
 
     if (response.acknowledged) {
-      res.status(201).json(response);
+      res.status(201).json({ message: 'Contact created successfully' });
     } else {
       res.status(500).json(response.error || 'Some error occurred while creating the contact.');
     }
@@ -81,6 +91,14 @@ const createContact = async (req, res) => {
 const updateContact = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
+
+    const password = req.body.password;
+    const passwordCheck = passwordUtil.passwordPass(password);
+    if (passwordCheck.error) {
+      res.status(400).send({ message: passwordCheck.error });
+      return;
+    }
+
     const contact = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -115,9 +133,9 @@ const updateContact = async (req, res) => {
       .replaceOne({ _id: userId }, contact);
 
     if (response.modifiedCount > 0) {
-      res.status(204).send();
+      res.status(204).json({ message: 'Contact updated successfully' });
     } else {
-      res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+      res.status(404).json({ message: 'Contact not found' });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -127,6 +145,14 @@ const updateContact = async (req, res) => {
 const adminUpdateContact = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
+
+    const password = req.body.password;
+    const passwordCheck = passwordUtil.passwordPass(password);
+    if (passwordCheck.error) {
+      res.status(400).send({ message: passwordCheck.error });
+      return;
+    }
+
     const contact = {
       first_name: req.body.first_name,
       last_name: req.body.last_name,
@@ -152,9 +178,9 @@ const adminUpdateContact = async (req, res) => {
       .replaceOne({ _id: userId }, contact);
 
     if (response.modifiedCount > 0) {
-      res.status(204).send();
+      res.status(200).json({ message: 'Contact updated successfully' });
     } else {
-      res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+      res.status(404).json({ message: 'Contact not found' });
     }
   } catch (error) {
     res.status(500).json({ error: error.message });

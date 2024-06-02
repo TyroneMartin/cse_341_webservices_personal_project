@@ -15,7 +15,7 @@
   "paths": {
     "/contacts/": {
       "get": {
-        "description": "Retrieve all contacts",
+        "description": "Get all contacts.",
         "produces": [
           "application/json"
         ],
@@ -29,19 +29,51 @@
         }
       },
       "post": {
-        "description": "Create a new student contact",
+        "description": "Create a new contact.",
         "parameters": [
           {
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "type": "object",
+              "properties": {
+                "password": {
+                  "example": "any"
+                },
+                "first_name": {
+                  "example": "any"
+                },
+                "last_name": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "nationality": {
+                  "example": "any"
+                },
+                "semester": {
+                  "example": "any"
+                },
+                "parents": {
+                  "example": "any"
+                },
+                "contact_numbers": {
+                  "example": "any"
+                },
+                "public_profile": {
+                  "example": "any"
+                }
+              }
             }
           }
         ],
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
           },
           "500": {
             "description": "Internal Server Error"
@@ -51,7 +83,7 @@
     },
     "/contacts/{id}": {
       "get": {
-        "description": "Retrieve a single contact by ID",
+        "description": "Get a specific contact by ID.",
         "produces": [
           "application/json"
         ],
@@ -76,7 +108,7 @@
         }
       },
       "put": {
-        "description": "Update a contact by ID",
+        "description": "Update a specific contact by ID.",
         "parameters": [
           {
             "name": "id",
@@ -88,13 +120,48 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/Contact"
+              "type": "object",
+              "properties": {
+                "password": {
+                  "example": "any"
+                },
+                "first_name": {
+                  "example": "any"
+                },
+                "last_name": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "nationality": {
+                  "example": "any"
+                },
+                "semester": {
+                  "example": "any"
+                },
+                "parents": {
+                  "example": "any"
+                },
+                "contact_numbers": {
+                  "example": "any"
+                },
+                "public_profile": {
+                  "example": "any"
+                }
+              }
             }
           }
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -102,7 +169,7 @@
         }
       },
       "delete": {
-        "description": "Delete a contact by ID",
+        "description": "Delete a specific contact by ID.",
         "parameters": [
           {
             "name": "id",
@@ -112,7 +179,7 @@
           }
         ],
         "responses": {
-          "204": {
+          "200": {
             "description": "No Content"
           },
           "500": {
@@ -123,7 +190,7 @@
     },
     "/contacts/admin/{id}": {
       "patch": {
-        "description": "Partially update a contact by ID for admin",
+        "description": "Update a specific contact by ID as an admin.",
         "parameters": [
           {
             "name": "id",
@@ -135,160 +202,51 @@
             "name": "body",
             "in": "body",
             "schema": {
-              "$ref": "#/definitions/AdminContact"
+              "type": "object",
+              "properties": {
+                "password": {
+                  "example": "any"
+                },
+                "first_name": {
+                  "example": "any"
+                },
+                "last_name": {
+                  "example": "any"
+                },
+                "date_of_birth": {
+                  "example": "any"
+                },
+                "nationality": {
+                  "example": "any"
+                },
+                "account_type": {
+                  "example": "any"
+                },
+                "contact_numbers": {
+                  "example": "any"
+                },
+                "public_profile": {
+                  "example": "any"
+                }
+              }
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
           }
         }
       }
-    }
-  },
-  "definitions": {
-    "Contact": {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "date_of_birth": {
-          "type": "string",
-          "format": "date"
-        },
-        "password": {
-          "type": "string"
-        },
-        "nationality": {
-          "type": "string"
-        },
-        "semester": {
-          "type": "integer"
-        },
-        "parents": {
-          "type": "object",
-          "properties": {
-            "mother": {
-              "type": "string"
-            },
-            "father": {
-              "type": "string"
-            }
-          }
-        },
-        "contact_numbers": {
-          "type": "object",
-          "properties": {
-            "phone_num": {
-              "type": "string"
-            },
-            "parents": {
-              "type": "object",
-              "properties": {
-                "mother": {
-                  "type": "string"
-                },
-                "father": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "public_profile": {
-          "type": "object",
-          "properties": {
-            "hobbies": {
-              "type": "string"
-            },
-            "plans_after_graduation": {
-              "type": "string"
-            },
-            "major": {
-              "type": "string"
-            },
-            "years_to_graduate": {
-              "type": "integer"
-            }
-          }
-        }
-      },
-      "required": [
-        "first_name",
-        "last_name",
-        "date_of_birth",
-        "password"
-      ]
-    },
-    "AdminContact": {
-      "type": "object",
-      "properties": {
-        "first_name": {
-          "type": "string"
-        },
-        "last_name": {
-          "type": "string"
-        },
-        "date_of_birth": {
-          "type": "string",
-          "format": "date"
-        },
-        "password": {
-          "type": "string"
-        },
-        "nationality": {
-          "type": "string"
-        },
-        "account_type": {
-          "type": "string",
-          "enum": [
-            "admin"
-          ]
-        },
-        "contact_numbers": {
-          "type": "object",
-          "properties": {
-            "phone_num": {
-              "type": "string"
-            }
-          }
-        },
-        "public_profile": {
-          "type": "object",
-          "properties": {
-            "hobbies": {
-              "type": "string"
-            },
-            "years_of_service": {
-              "type": "integer"
-            },
-            "department": {
-              "type": "string",
-              "enum": [
-                "Administration"
-              ]
-            },
-            "role": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "required": [
-        "first_name",
-        "last_name",
-        "date_of_birth",
-        "password",
-        "account_type"
-      ]
     }
   }
 }
