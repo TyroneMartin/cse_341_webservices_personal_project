@@ -3,7 +3,7 @@ const { ObjectId } = require('mongodb');
 const passwordUtil = require('../util/passwordComplexityCheck');
 
 
-const getAllContacts = async (req, res, next) => {
+const getAllAccounts = async (req, res, next) => {
   try {
     const result = await mongodb.getDb().db().collection('school-bd').find();
     result.toArray().then((lists) => {
@@ -15,7 +15,7 @@ const getAllContacts = async (req, res, next) => {
   }
 };
 
-const getSingle = async (req, res, next) => {
+const getSingleAccount = async (req, res, next) => {
   try {
     const userId = new ObjectId(req.params.id);
     const result = await mongodb
@@ -36,7 +36,7 @@ const getSingle = async (req, res, next) => {
 };
 
 
-const createContact = async (req, res) => {
+const createAccount = async (req, res) => {
   try {
     const password = req.body.password;
     const passwordCheck = passwordUtil.passwordPass(password);
@@ -88,7 +88,7 @@ const createContact = async (req, res) => {
   }
 };
 
-const updateContact = async (req, res) => {
+const updateAccount = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
 
@@ -142,7 +142,7 @@ const updateContact = async (req, res) => {
   }
 };
 
-const adminUpdateContact = async (req, res) => {
+const adminupdateAccount = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
 
@@ -187,7 +187,7 @@ const adminUpdateContact = async (req, res) => {
   }
 };
 
-const deleteContact = async (req, res) => {
+const deleteAccount = async (req, res) => {
   try {
     const userId = new ObjectId(req.params.id);
     const response = await mongodb
@@ -207,10 +207,10 @@ const deleteContact = async (req, res) => {
 };
 
 module.exports = {
-  getAllContacts,
-  getSingle,
-  createContact,
-  updateContact,
-  adminUpdateContact,
-  deleteContact
+  getAllAccounts,
+  getSingleAccount,
+  createAccount,
+  updateAccount,
+  adminupdateAccount,
+  deleteAccount
 };

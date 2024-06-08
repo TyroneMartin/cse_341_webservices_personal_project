@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const contactsController = require('../controllers/contacts');
+const contactsController = require('../controllers/accounts');
 const { requiresAuth } = require('express-openid-connect');
 
 
-
-router.get('/', contactsController.getAllContacts); // http://localhost:8080/contacts
-router.get('/:id', contactsController.getSingle);
-router.post('/', contactsController.createContact);
-router.put('/account/:id', requiresAuth(), contactsController.updateContact);
-router.delete('/:id', contactsController.deleteContact);
-router.patch('/admin/:id', contactsController.adminUpdateContact);
+router.get('/', contactsController.getAllAccounts); // http://localhost:8080/accounts
+router.get('/:id', contactsController.getSingleAccount);
+router.post('/', contactsController.createAccount);
+router.put('/:id', requiresAuth(), contactsController.updateAccount);
+router.delete('/:id', contactsController.deleteAccount);
+router.patch('/admin/:id', contactsController.adminupdateAccount);
 
 module.exports = router;
