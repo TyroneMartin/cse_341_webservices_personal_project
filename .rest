@@ -1,36 +1,37 @@
 // LOCALHOST Connection 
-GET http://localhost:8080/api-docs
-###
 
-###
-# Get contacts
-GET http://localhost:8080/contacts/
+# Get accounts
+GET http://localhost:8080/accounts/
 
 ###
 
 # Get student by ID
-GET http://localhost:8080/contacts/6652368eb2d270cc562ac6e3 
+GET http://localhost:8080/accounts/6652368eb2d270cc562ac6e3 
 
 ### Create contact POST 
-POST http://localhost:8080/contacts HTTP/1.1
-Content-Type: application/json
- 
+POST http://localhost:8080/accounts HTTP/1.1
+
+content-type: application/json
 
 {
-  "first_name": "any",
-  "last_name": "any",
+    "first_name": "any",
+  "last_name": "update",
   "date_of_birth": "any",
   "password": "any",
   "nationality": "any",
   "semester": "any",
+  "parents": "any",
+  "contact_numbers": "any",
+  "public_profile": "any"
 }
 
 ### PUT contact 
-PUT http://localhost:8080/contacts/6652368eb2d270cc562ac6e3 HTTP/1.1 
+PUT http://localhost:8080/accounts/6652368eb2d270cc562ac6dc HTTP/1.1 
+
 content-type: application/json
 
-
-{"first_name": "any",
+{
+  "first_name": "any",
   "last_name": "update",
   "date_of_birth": "any",
   "password": "any",
@@ -42,7 +43,7 @@ content-type: application/json
 }
 
 ### DELETE contact 
-DELETE http://localhost:8080/contacts/663b921a575163c2994d0806 HTTP/1.1
+DELETE http://localhost:8080/accounts/663b921a575163c2994d0806 HTTP/1.1
 
 // PRODUCTION Deploy 
 ###
@@ -51,14 +52,14 @@ DELETE http://localhost:8080/contacts/663b921a575163c2994d0806 HTTP/1.1
 GET https://cse-341-webservices-personal-project.onrender.com/api-docs/
 ###
 
-### Get all contacts 
-GET https://cse-341-webservices-personal-project.onrender.com/contacts  HTTP/1.1
+### Get all accounts 
+GET https://cse-341-webservices-personal-project.onrender.com/accounts  HTTP/1.1
 
 ### Get contact by id 
-GET https://cse-341-webservices-personal-project.onrender.com/contacts/6652368eb2d270cc562ac6e3 HTTP/1.1
+GET https://cse-341-webservices-personal-project.onrender.com/accounts/6652368eb2d270cc562ac6e3 HTTP/1.1
 
 ### Create contact 
-POST https://cse-341-webservices-personal-project.onrender.com/contacts HTTP/1.1
+POST https://cse-341-webservices-personal-project.onrender.com/accounts HTTP/1.1
 Content-Type: application/json
 
 {
@@ -89,7 +90,7 @@ Content-Type: application/json
 
 
 ### PUT contact 
-PUT https://cse-341-webservices-personal-project.onrender.com/contacts/665278020631c2bb2c950515 HTTP/1.1
+PUT https://cse-341-webservices-personal-project.onrender.com/accounts/665278020631c2bb2c950515 HTTP/1.1
 Content-Type: application/json
 
 {
@@ -121,5 +122,5 @@ Content-Type: application/json
 
 ### 
 #DELETE contact
-DELETE https://cse-341-webservices-personal-project.onrender.com/contacts/66527c4a02fda409eb2680d9 HTTP/1.1
+DELETE https://cse-341-webservices-personal-project.onrender.com/accounts/66527c4a02fda409eb2680d9 HTTP/1.1
 
