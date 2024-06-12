@@ -7,7 +7,7 @@ const { requiresAuth } = require('express-openid-connect');
 router.get('/', requiresAuth(), contactsController.getAllAccounts); // http://localhost:8080/accounts
 router.get('/:id', requiresAuth(), contactsController.getSingleAccount);
 router.post('/', contactsController.createAccount);
-router.put('/:id', contactsController.updateAccount);
+router.put('/:id', requiresAuth(), contactsController.updateAccount);
 router.delete('/:id', contactsController.deleteAccount);
 // router.patch('/admin/:id', contactsController.adminupdateAccount);
 

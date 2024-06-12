@@ -1,0 +1,72 @@
+ [
+    {
+      "name": "Computer Science",
+      "enrollment": 200,
+      "sections": [
+        {
+          "number_of_sections": 6,
+          "teachers_per_section": 1,
+          "year": 2025
+        },
+        {
+          "number_of_sections": 4,
+          "teachers_per_section": 1,
+          "year": 2024
+        },
+        {
+          "number_of_sections": 5,
+          "teachers_per_section": 1,
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "name": "Mechanical Engineering",
+      "enrollment": 150,
+      "sections": [
+        {
+          "number_of_sections": 3,
+          "teachers_per_section": 2,
+          "year": 2024
+        },
+        {
+          "number_of_sections": 3,
+          "teachers_per_section": 2,
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "name": "Business Administration",
+      "enrollment": 250,
+      "sections": [
+        {
+          "number_of_sections": 6,
+          "teachers_per_section": 1,
+          "year": 2024
+        },
+        {
+          "number_of_sections": 6,
+          "teachers_per_section": 1,
+          "year": 2023
+        }
+      ]
+    },
+    {
+      "name": "Biology",
+      "enrollment": 180,
+      "sections": [
+        {
+          "number_of_sections": 4,
+          "teachers_per_section": 1,
+          "year": 2024
+        },
+        {
+          "number_of_sections": 4,
+          "teachers_per_section": 1,
+          "year": 2023
+        }
+      ]
+    }
+  ]
+
