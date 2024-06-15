@@ -5,38 +5,15 @@
     "description": "Is a RESTful API for my contacts created as part of my class assignment for CSE 341.",
     "version": "1.0.0"
   },
-  "host": [
-    "localhost:8080",
-    "cse-341-webservices-personal-project.onrender.com"
-  ],
+  "host": "cse-341-webservices-personal-project.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
-  "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
+  "paths": {  
     "/accounts/": {
       "get": {
-        "description": "",
+        "description": "Fetch data for accounts",
         "produces": [
           "application/json"
         ],
@@ -50,7 +27,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Create a new account",
         "parameters": [
           {
             "name": "body",
@@ -91,7 +68,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "New account was created"
           },
           "400": {
             "description": "Bad Request"
@@ -104,7 +81,7 @@
     },
     "/accounts/{id}": {
       "get": {
-        "description": "",
+        "description": "Get account by ID",
         "produces": [
           "application/json"
         ],
@@ -121,7 +98,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Page Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -129,7 +106,7 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Update account by ID",
         "parameters": [
           {
             "name": "id",
@@ -182,7 +159,7 @@
             "description": "Bad Request"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Page Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -190,7 +167,7 @@
         }
       },
       "delete": {
-        "description": "",
+        "description": "Delete account by ID",
         "parameters": [
           {
             "name": "id",
@@ -202,6 +179,46 @@
         "responses": {
           "204": {
             "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/degrees/": {
+      "get": {
+        "description": "Fetch all degrees",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/degrees/{id}": {
+      "delete": {
+        "description": "Delete degree by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Page Not Found"
           },
           "500": {
             "description": "Internal Server Error"

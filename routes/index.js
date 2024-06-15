@@ -21,6 +21,7 @@ router.get('/api-docs', swaggerUi.setup(swaggerDocument)); // http://localhost:8
 
 // Routes to other files
 router.use('/accounts', require('./accounts')); // http://localhost:8080/accounts/
+router.use('/degrees', require('./degrees')); // http://localhost:8080/degrees
 
 // Export the router
 module.exports = router;
